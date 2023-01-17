@@ -23,12 +23,12 @@ if plot:
     if selected_state == 'Overall India':
         # plot for india
         fig = px.scatter_mapbox(df, lat="Latitude", lon="Longitude",size= primary, color = secondary, zoom=4,size_max=35,
-                                mapbox_style="carto-positron",width=1200,height=700,hover_name='District')
+                                mapbox_style="carto-positron",width=1200,height=700,hover_name='District',color_continuous_scale='Viridis')
         st.plotly_chart(fig,use_container_width=True)
     else:
         # plot for state
         state_df = df[df['State'] == selected_state]
 
         fig = px.scatter_mapbox(state_df, lat="Latitude", lon="Longitude", size=primary, color=secondary, zoom=6, size_max=35,
-                                mapbox_style="carto-positron", width=1200, height=700,hover_name='District')
+                                mapbox_style="carto-positron", width=1200, height=700,hover_name='District',color_continuous_scale='Inferno')
         st.plotly_chart(fig, use_container_width=True)
